@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 class Program
 {
+    // -----KALKULATOR-----
     static double calcFunc()
     {
 
@@ -58,6 +59,7 @@ class Program
         }
     }
 
+    // -----KONWERTOR TEMPERATUR-----
     static double temperFunc()
     {
 
@@ -108,6 +110,7 @@ class Program
         }
     }
 
+    // -----SREDNIA UCZNIA-----
     static double avgFunc()
     {
 
