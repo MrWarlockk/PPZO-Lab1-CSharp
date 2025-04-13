@@ -58,6 +58,56 @@ class Program
         }
     }
 
+    static double temperFunc()
+    {
+
+        while (true)
+        {
+            Console.WriteLine("\nPodaj jednostke wejsciowa: ");
+            Console.WriteLine("C: Zamiana stopni Celciusza na Fahrenheit ");
+            Console.WriteLine("F: Zamiana stopni Fahrenheit na Celciusza ");
+
+
+            string conversionChoice = Console.ReadLine() ?? "-1";
+            double degreeValue;
+
+            switch (conversionChoice)
+            {
+                case "c":
+                case "C":
+                    while (true)
+                    {
+                        Console.WriteLine("\nPodaj ilosc stopni: ");
+                        while (!double.TryParse(Console.ReadLine(), out degreeValue))
+                        {
+                            Console.WriteLine("Nieprawidlowa wartosc. Podaj liczbe: ");
+                        };
+
+                        return ((degreeValue * 1.8) + 32);
+                    }
+
+                case "f":
+                case "F":
+                    while (true)
+                    {
+                        Console.WriteLine("\nPodaj ilosc stopni: ");
+                        while (!double.TryParse(Console.ReadLine(), out degreeValue))
+                        {
+                            Console.WriteLine("Nieprawidlowa wartosc. Podaj liczbe: ");
+                        };
+                        return ((degreeValue - 32) / 1.8);
+                    }
+
+                default:
+                    Console.WriteLine("\nNieprawidlowy input");
+                    break;
+
+            }
+
+
+        }
+    }
+
     static void Main()
     {
         string choiceMain;
@@ -72,6 +122,15 @@ class Program
                     double resultCalc = calcFunc();
                     Console.WriteLine("Wynik to: " + resultCalc);
                     break;
+
+                case "2":
+                    double temperFuncRet = temperFunc();
+                    if (temperFuncRet != double.NaN)
+                    {
+                        Console.WriteLine("Wynik to: " + temperFuncRet);
+                    };
+                    break;
+
                 default:
                     switchExit = true;
                     break;
