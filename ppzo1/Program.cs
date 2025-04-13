@@ -108,6 +108,35 @@ class Program
         }
     }
 
+    static double avgFunc()
+    {
+
+        while (true)
+        {
+            Console.WriteLine("\nPodaj ilosc ocen ucznia: ");
+
+            int studentGradeAmount;
+            double studentGrade;
+            double userSum = 0;
+
+            while (!int.TryParse(Console.ReadLine(), out studentGradeAmount))
+            {
+                Console.WriteLine("Nieprawidlowa wartosc. Podaj poprawna liczbe: ");
+            };
+
+            for(int i = 0; i< studentGradeAmount; i++)
+            {
+                Console.WriteLine($"\nPodaj {i+1} ocene ucznia: ");
+                while (!double.TryParse(Console.ReadLine(), out studentGrade) || studentGrade < 1 || studentGrade > 6)
+                {
+                    Console.WriteLine("Nieprawidlowa wartosc. Podaj prawidlowa liczbe: ");
+                };
+                userSum += studentGrade;
+            }
+            return userSum/ studentGradeAmount;
+        }
+    }
+
     static void Main()
     {
         string choiceMain;
@@ -129,6 +158,13 @@ class Program
                     {
                         Console.WriteLine("Wynik to: " + temperFuncRet);
                     };
+                    break;
+
+                case "3":
+                    double gradeAvg = avgFunc();
+                    Console.WriteLine("Srednia ucznia to: " + gradeAvg);
+                    if (gradeAvg >= 3.0) { Console.WriteLine("Uczen zdal"); }
+                    else { Console.WriteLine("Uczen nie zdal"); }
                     break;
 
                 default:
